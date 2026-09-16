@@ -1,0 +1,11 @@
+Smith et al. 2024. Long-term outcomes of low-dose aspirin for primary prevention in adults over 70.
+
+Background. Aspirin has been recommended for primary prevention of cardiovascular events for decades, but evidence in older adults is thin. We conducted a randomised, placebo-controlled trial of 100 mg daily aspirin in 19,114 community-dwelling adults aged 70 and older with no prior cardiovascular disease.
+
+Methods. Participants were recruited from primary care practices in Australia and the United States between 2010 and 2014 and followed for a median of 4.7 years. The primary endpoint was disability-free survival. Secondary endpoints included major haemorrhage, cardiovascular events and all-cause mortality.
+
+Results. Aspirin did not prolong disability-free survival. The rate of major haemorrhage was significantly higher in the aspirin group (3.8 percent versus 2.8 percent), driven largely by upper gastrointestinal bleeding and intracranial bleeding. There was no significant reduction in cardiovascular events. Unexpectedly, all-cause mortality was higher in the aspirin group, with the excess attributable mainly to cancer-related deaths, an effect the trial was not designed to explain.
+
+Dose response. We observed no evidence that bleeding risk plateaued at the 100 mg dose; risk rose steadily with cumulative exposure, contradicting the assumption that low-dose aspirin sits below a bleeding threshold.
+
+Conclusions. Daily low-dose aspirin should not be started for primary prevention in healthy adults over 70. The increase in bleeding is real, the cardiovascular benefit is absent in this population, and the mortality signal warrants investigation. Adults already taking aspirin for secondary prevention were not studied and should not stop on the basis of these findings.

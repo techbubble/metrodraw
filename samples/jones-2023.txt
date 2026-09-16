@@ -1,0 +1,13 @@
+Jones and Patel 2023. Aspirin for primary prevention: a meta-analysis of thirteen trials.
+
+We pooled individual-level data from thirteen randomised trials of aspirin for primary prevention of cardiovascular disease, covering 164,225 participants without prior cardiovascular events, with a median follow-up of 5.0 years.
+
+Cardiovascular benefit. Aspirin was associated with a modest but statistically significant reduction in the composite cardiovascular outcome of myocardial infarction, stroke and cardiovascular death (hazard ratio 0.89). The absolute risk reduction was small, about 0.4 percent over five years, and was concentrated in participants under 65 with elevated baseline risk.
+
+Bleeding. Major bleeding was increased (hazard ratio 1.43), with an absolute risk increase of about 0.5 percent over five years. Bleeding risk rose with age and was highest in participants over 70, where it exceeded the cardiovascular benefit.
+
+Dose. Across trials we found that bleeding risk plateaued at doses at or below 100 mg per day. Higher doses produced more bleeding without additional cardiovascular benefit, which supports the use of the lowest effective dose when aspirin is prescribed at all.
+
+Mortality. There was no effect on all-cause mortality in any subgroup. We found no signal for increased cancer mortality; if anything, the point estimate for cancer incidence favoured aspirin, consistent with earlier reports on colorectal cancer.
+
+Recommendation. Aspirin for primary prevention should be an individualised decision. It is reasonable in adults aged 40 to 65 whose ten-year cardiovascular risk exceeds 10 percent and who are not at increased risk of bleeding. It should not be routinely started in adults over 70.

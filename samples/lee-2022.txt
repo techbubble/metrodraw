@@ -1,0 +1,15 @@
+Lee 2022. Guideline statement on aspirin use for the primary prevention of cardiovascular disease.
+
+Scope. This statement updates the 2016 guidance. It addresses adults with no history of cardiovascular disease and does not address secondary prevention.
+
+Evidence review. The panel reviewed randomised trials published through 2021. Recent large trials in older adults and in adults with diabetes reported smaller cardiovascular benefits than earlier trials, in a population now widely treated with statins and blood-pressure lowering therapy, which has reduced the background event rate that aspirin can act on.
+
+Bleeding. All trials report an increase in major bleeding with aspirin, predominantly gastrointestinal. The panel judged that bleeding risk plateaus at low doses; the evidence does not support a dose-dependent rise below 100 mg.
+
+Age. For adults aged 40 to 59 with a ten-year cardiovascular risk of 10 percent or greater, the panel concluded with moderate certainty that the net benefit of starting low-dose aspirin is small, and the decision should be individual. For adults aged 60 and older, the panel recommends against initiating aspirin for primary prevention, because bleeding harms offset the cardiovascular benefit.
+
+Cancer. Earlier observational evidence suggested aspirin reduces colorectal cancer incidence. The panel found the trial evidence inadequate and does not consider cancer prevention a reason to prescribe aspirin.
+
+Statins. Where a patient qualifies for primary prevention therapy, the panel recommends statin therapy before aspirin, as the evidence base for statins is stronger and the bleeding harm is absent.
+
+Recommendation. Do not routinely start aspirin for primary prevention in adults over 60. In adults 40 to 59 at elevated risk, discuss with the patient. Patients already taking aspirin should review the decision with their clinician rather than stopping abruptly.

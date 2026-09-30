@@ -3,7 +3,7 @@ import type { DocumentRecord } from "../types";
 
 export const MAX_DOC_BYTES = 15 * 1024 * 1024;
 export const MAX_DOC_CHARS = 80_000;
-export const MAX_DOCS = 8;
+export const MAX_DOCS = 10;
 
 // Turns an uploaded file into a DocumentRecord with page offsets. PDF text
 // comes out per page; plain text is a single page.

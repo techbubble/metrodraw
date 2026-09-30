@@ -59,22 +59,27 @@ export default function MapView({ record, mine }: { record: Omit<MapRecord, "acc
         {mine && <DeleteMapButton id={record.id} afterDelete="home" />}
         <Link href="/" className="btn btn-sm btn-primary">New map</Link>
       </div>
-      <div className="d-flex flex-wrap gap-2 mb-2 small">
-        {record.graph.lines.map((l) => (
-          <span key={l.id} className="d-inline-flex align-items-center gap-1">
-            <span style={{ width: 18, height: 6, background: l.color, borderRadius: 3, display: "inline-block" }} />
-            {l.label}
-            <span className="text-secondary">({record.documents.find((d) => d.id === l.id)?.name})</span>
-          </span>
-        ))}
-        <span className="ms-auto text-secondary">
-          <span className="me-2"><Ring stroke="#111" /> agree</span>
-          <span className="me-2"><Ring stroke="#d32f2f" dash /> contradict</span>
-          <span><Ring stroke="#e69500" dash /> mixed</span>
-        </span>
-      </div>
       <div className="row g-3">
-        <div className={station ? "col-lg-8" : "col-12"}>
+        <div className="col-lg-2">
+          <div className="border rounded p-3 small">
+            <div className="fw-semibold text-secondary text-uppercase mb-2" style={{ fontSize: 11, letterSpacing: 0.5 }}>Lines</div>
+            <ul className="list-unstyled mb-3">
+              {record.graph.lines.map((l) => (
+                <li key={l.id} className="d-flex align-items-start gap-2 mb-2">
+                  <span className="flex-shrink-0" style={{ width: 18, height: 6, marginTop: 7, background: l.color, borderRadius: 3, display: "inline-block" }} />
+                  <span style={{ overflowWrap: "anywhere" }}>{l.label}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="fw-semibold text-secondary text-uppercase mb-2" style={{ fontSize: 11, letterSpacing: 0.5 }}>Junctions</div>
+            <ul className="list-unstyled mb-0 text-secondary">
+              <li className="mb-1"><Ring stroke="#111" /> agree</li>
+              <li className="mb-1"><Ring stroke="#d32f2f" dash /> contradict</li>
+              <li><Ring stroke="#e69500" dash /> mixed</li>
+            </ul>
+          </div>
+        </div>
+        <div className={station ? "col-lg-6" : "col-lg-10"}>
           <div className="border rounded">
             <MetroMap scene={scene} lineLabels={lineLabels} onOpenSource={setSelected} />
           </div>

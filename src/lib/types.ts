@@ -86,7 +86,7 @@ export type LabelPlacement = {
   baseline: "hanging" | "middle" | "alphabetic";
 };
 
-export const LAYOUT_VERSION = 3;
+export const LAYOUT_VERSION = 4;
 
 export type Layout = {
   version: number;

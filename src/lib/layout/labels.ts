@@ -153,12 +153,14 @@ export function placeLabels(
   const toPlacement = (it: Item): LabelPlacement => { const c = choice.get(it.id)!; return { id: it.id.replace(/^line:/, ""), x: c.x, y: c.y, lines: it.lines, anchor: c.anchor, baseline: c.baseline }; };
   const labels = items.filter((i) => !i.id.startsWith("line:")).map(toPlacement);
   const lineLabels = items.filter((i) => i.id.startsWith("line:")).map(toPlacement);
+  // Content-only bounds. The grid is sized generously for routing and is
+  // usually much larger than what gets drawn, so it must not pad the bbox.
   const all = [...placed.values(), ...trackBoxes, ...markerBoxes];
-  const bbox: Box = {
-    x0: Math.min(gridBox.x0, ...all.map((b) => b.x0)),
-    y0: Math.min(gridBox.y0, ...all.map((b) => b.y0)),
-    x1: Math.max(gridBox.x1, ...all.map((b) => b.x1)),
-    y1: Math.max(gridBox.y1, ...all.map((b) => b.y1)),
+  const bbox: Box = all.length === 0 ? gridBox : {
+    x0: Math.min(...all.map((b) => b.x0)),
+    y0: Math.min(...all.map((b) => b.y0)),
+    x1: Math.max(...all.map((b) => b.x1)),
+    y1: Math.max(...all.map((b) => b.y1)),
   };
   return { labels, lineLabels, bbox };
 }

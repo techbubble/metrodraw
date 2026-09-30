@@ -1,9 +1,20 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
-const MAX_DOCS = 8;
+const MAX_DOCS = 10;
+
+type SampleDomain = { id: string; label: string; files: { name: string; size: number }[] };
+
+function pickRandom<T>(items: T[], n: number): T[] {
+  const a = items.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a.slice(0, n);
+}
 
 export default function Uploader() {
   const router = useRouter();
@@ -12,6 +23,41 @@ export default function Uploader() {
   const [error, setError] = useState<string | null>(null);
   const [drag, setDrag] = useState(false);
   const input = useRef<HTMLInputElement>(null);
+  const [domains, setDomains] = useState<SampleDomain[]>([]);
+  const [domain, setDomain] = useState("");
+  const [loadingSamples, setLoadingSamples] = useState(false);
+
+  useEffect(() => {
+    fetch("/api/samples")
+      .then((r) => (r.ok ? r.json() : { domains: [] }))
+      .then((d: { domains: SampleDomain[] }) => setDomains(d.domains))
+      .catch(() => {});
+  }, []);
+
+  // Replaces the current selection with up to MAX_DOCS random documents from
+  // the chosen sample domain.
+  async function loadSamples() {
+    const dom = domains.find((d) => d.id === domain);
+    if (!dom) return;
+    setLoadingSamples(true);
+    setError(null);
+    try {
+      const picked = pickRandom(dom.files, MAX_DOCS);
+      const loaded = await Promise.all(
+        picked.map(async (f) => {
+          const res = await fetch(`/api/samples/${encodeURIComponent(dom.id)}/${encodeURIComponent(f.name)}`);
+          if (!res.ok) throw new Error(`Could not load sample "${f.name}" (${res.status})`);
+          const blob = await res.blob();
+          return new File([blob], f.name, { type: blob.type || (f.name.endsWith(".pdf") ? "application/pdf" : "text/plain") });
+        }),
+      );
+      setFiles(loaded);
+    } catch (e) {
+      setError((e as Error).message);
+    } finally {
+      setLoadingSamples(false);
+    }
+  }
 
   function add(list: FileList | File[]) {
     const next = [...files];
@@ -59,6 +105,20 @@ export default function Uploader() {
         <div className="fw-semibold">Drop documents here or click to choose</div>
         <div className="text-secondary small">PDF, TXT, MD. 15 MB per document.</div>
       </div>
+      {domains.length > 0 && (
+        <div className="d-flex align-items-center gap-2 mb-3">
+          <span className="text-secondary small text-nowrap">Or try a sample set:</span>
+          <select className="form-select form-select-sm w-auto" value={domain} disabled={busy || loadingSamples} onChange={(e) => setDomain(e.target.value)}>
+            <option value="">Choose a domain</option>
+            {domains.map((d) => (
+              <option key={d.id} value={d.id}>{d.label} ({d.files.length})</option>
+            ))}
+          </select>
+          <button type="button" className="btn btn-sm btn-outline-primary text-nowrap" disabled={!domain || busy || loadingSamples} onClick={loadSamples}>
+            {loadingSamples ? (<><span className="spinner-border spinner-border-sm me-2" />Loading</>) : `Load ${Math.min(MAX_DOCS, domains.find((d) => d.id === domain)?.files.length ?? MAX_DOCS)} at random`}
+          </button>
+        </div>
+      )}
       {files.length > 0 && (
         <ul className="list-group mb-3">
           {files.map((f, i) => (
